@@ -3,156 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JAM Comics</title>
-  <style>
-    /* Basic Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-    body { background: #f0f8ff; color: #333; line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
-    
-    /* Header / Navbar */
-    header { background: #1e3a8a; color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    nav a { margin-left: 1.5rem; font-weight: bold; }
-    
-    /* Hero Section */
-    .hero { text-align: center; padding: 5rem 2rem; background: linear-gradient(135deg,#4f46e5,#6366f1); color:white; }
-    .hero h1 { font-size: 3rem; margin-bottom:1rem; text-transform: uppercase; }
-    .hero p { font-size: 1.2rem; }
-
-    /* Sections */
-    section { padding: 4rem 2rem; }
-    h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
-    .center { text-align: center; }
-
-    /* Buttons */
-    .btn { display: inline-block; background: #1e3a8a; color: #fff; padding: 0.6rem 1.2rem; border-radius: 5px; margin-top: 1rem; cursor: pointer; }
-
-    /* Footer */
-    footer { background: #111827; color: #fff; text-align: center; padding: 2rem; }
-
-    /* Author / Book cards */
-    .author-card, .book-card { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin: 1rem auto; max-width: 400px; background: #fff; }
-    .tag { font-weight: bold; padding: 0.2rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
-    .tag.free { background: #10b981; color: #fff; }
-    .tag.paid { background: #ef4444; color: #fff; }
-
-    /* Digital Library reading placeholder */
-    .reading-placeholder { border: 2px dashed #1e3a8a; padding: 2rem; margin: 1rem auto; max-width: 600px; text-align: center; }
-  </style>
+  <title>JAM Comics - Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header / Navbar -->
+  <!-- Header / Navigation -->
   <header>
     <div class="logo"><h1>JAM Comics</h1></div>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#join">Join Our Team</a>
-      <a href="#authors">Authors & Books</a>
-      <a href="#announcements">Announcements & Teasers</a>
-      <a href="#library">Digital Library</a>
-      <a href="#store">Store / Merch</a>
-      <a href="#newsletter">Newsletter</a>
-      <a href="#contact">Contact / Help</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="join.html">Join Our Team</a>
+      <a href="authors.html">Authors & Books</a>
+      <a href="library.html">Digital Library</a>
+      <a href="store.html">Store / Merch</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="contact.html">Contact / Help</a>
     </nav>
   </header>
 
-  <!-- Hero / Main Banner -->
-  <section id="home" class="hero">
+  <!-- Hero Section -->
+  <section class="hero">
     <h1>JAM Comics</h1>
     <p>Where stories come to life. Comics, books, and more!</p>
-  </section>
-
-  <!-- About Us -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p class="center">JAM Comics is a small, creative team dedicated to bringing unique stories and characters to life. We specialize in comics but support all kinds of storytelling!</p>
-  </section>
-
-  <!-- Join Our Team -->
-  <section id="join">
-    <h2>Join Our Team</h2>
-    <p class="center">We’re looking for passionate creators to join us. If you love comics and storytelling, we want you!</p>
-    <div class="center"><a href="#contact" class="btn">Contact Us to Apply</a></div>
-  </section>
-
-  <!-- Authors & Books -->
-  <section id="authors">
-    <h2>Authors & Books</h2>
-    <p class="center">Discover the works of our talented authors.</p>
-
-    <!-- Example Author -->
-    <div class="author-card">
-      <h3>Jess River</h3>
-      <p><em>Novels</em></p>
-      <p>Published by JAM Comics</p>
-      <p>Works:</p>
-      <ul>
-        <li>The Cosmic Train <span class="tag.paid">Paid</span></li>
-        <li>Short Story Snippets <span class="tag.free">Free</span></li>
-      </ul>
-      <a href="#library" class="btn">Go to Digital Library</a>
-    </div>
-
-  </section>
-
-  <!-- Announcements & Teasers -->
-  <section id="announcements">
-    <h2>Announcements & Teasers</h2>
-    <p class="center">Stay updated on upcoming releases and special events!</p>
-  </section>
-
-  <!-- Digital Library -->
-  <section id="library">
-    <h2>Digital Library</h2>
-    <p class="center">All JAM Comics content is available here. Sign in required to read or purchase works.</p>
-
-    <!-- Free Work Example -->
-    <div class="book-card">
-      <h3>Short Story Snippets</h3>
-      <p class="tag free">Free</p>
-      <p>Read online directly on JAM Comics.</p>
-      <div class="reading-placeholder">
-        Reading interface placeholder – online only, no downloads. <br>
-        Watermark placeholder for paid works will appear here.
-      </div>
-    </div>
-
-    <!-- Paid Work Example -->
-    <div class="book-card">
-      <h3>The Cosmic Train</h3>
-      <p class="tag paid">Paid</p>
-      <p>Choose to purchase digitally or physically.</p>
-      <div class="reading-placeholder">
-        Reading interface placeholder – online only, no downloads. <br>
-        Watermark will appear while reading.
-      </div>
-      <a href="#store" class="btn">Purchase Physical</a>
-      <a href="#library" class="btn">Purchase Digital</a>
-    </div>
-  </section>
-
-  <!-- Store / Merch -->
-  <section id="store">
-    <h2>Store / Merch</h2>
-    <p class="center">Coming Soon – physical comics, books, and merchandise will be available here.</p>
-  </section>
-
-  <!-- Newsletter Archive -->
-  <section id="newsletter">
-    <h2>Newsletter Archive</h2>
-    <p class="center">Browse past newsletters from JAM Comics.</p>
-  </section>
-
-  <!-- Contact / Help -->
-  <section id="contact">
-    <h2>Contact / Help</h2>
-    <p class="center">
-      Email: Unavailable <br>
-      Instagram: <a href="https://www.instagram.com/jamcomicshq?igsh=MXNqaXFkN3A1ZmRxZA==" target="_blank">@jamcomicshq</a> <br>
-      Twitter: Unavailable
-    </p>
   </section>
 
   <!-- Footer -->
