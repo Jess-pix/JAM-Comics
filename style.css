@@ -20,17 +20,25 @@ a {
 /* ===== Header ===== */
 header {
   display: flex;
-  flex-direction: column; /* two rows */
+  flex-direction: column; /* two rows: top & bottom */
   background: #1e3a8a;
   color: #fff;
   padding: 0.8rem 2rem;
+}
+
+/* Top Row: Logo left, business links right */
+.header-top {
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;
+  margin-bottom: 0.6rem;
 }
 
 /* Logo */
 .header-top .logo h1 {
   font-size: 2rem;
   text-transform: uppercase;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .header-top .logo a {
@@ -41,18 +49,17 @@ header {
 /* Top row: business links, right-aligned */
 .business-nav {
   display: flex;
-  justify-content: flex-end; /* right-aligned */
+  justify-content: flex-end;
   gap: 2.5rem;
   font-weight: bold;
   font-size: 0.95rem;
-  margin-bottom: 0.8rem;
 }
 
 .business-nav a:hover {
   text-decoration: underline;
 }
 
-/* Bottom row: story/news links, right-aligned with subtle separation */
+/* Bottom Row: story/news links, right-aligned */
 .story-nav {
   display: flex;
   justify-content: flex-end; /* right-aligned */
@@ -61,10 +68,17 @@ header {
   font-size: 1.1rem;
   border-top: 1px solid rgba(255,255,255,0.3);
   padding-top: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .story-nav a:hover {
   text-decoration: underline;
+}
+
+/* Add small spacing from header edge */
+header .story-nav a,
+header .business-nav a {
+  padding-right: 0.2rem;
 }
 
 /* ===== Hero Section ===== */
