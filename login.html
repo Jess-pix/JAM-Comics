@@ -47,5 +47,23 @@
     </p>
   </section>
 
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
+  authDomain: "jam-comics.firebaseapp.com",
+  projectId: "jam-comics",
+  storageBucket: "jam-comics.firebasestorage.app",
+  messagingSenderId: "1023403941384",
+  appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
+  measurementId: "G-TKLMVKDPN9"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+</script>
+  
 </body>
 </html>
