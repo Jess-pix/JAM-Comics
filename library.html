@@ -67,36 +67,40 @@
     <p>&copy; 2026 JAM Comics. All rights reserved.</p>
   </footer>
 
-  <!-- FIREBASE (v8 for auth check) -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <!-- FIREBASE AUTH PROTECTION -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
-<script>
-  // Your Firebase config (same as signup/login)
-  const firebaseConfig = {
-    apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
-    authDomain: "jam-comics.firebaseapp.com",
-    projectId: "jam-comics",
-    storageBucket: "jam-comics.firebasestorage.app",
-    messagingSenderId: "1023403941384",
-    appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
-    measurementId: "G-TKLMVKDPN9"
-  };
+  <script>
+    // Firebase config (same as signup/login)
+    const firebaseConfig = {
+      apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
+      authDomain: "jam-comics.firebaseapp.com",
+      projectId: "jam-comics",
+      storageBucket: "jam-comics.firebasestorage.app",
+      messagingSenderId: "1023403941384",
+      appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
+      measurementId: "G-TKLMVKDPN9"
+    };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-  // Check if user is logged in
-  auth.onAuthStateChanged(user => {
-    if (!user) {
-      // Not signed in, redirect to login
-      alert("Please sign in to access the Digital Library.");
-      window.location.href = "login.html";
-    }
-    // Else: user is logged in, do nothing (they can view library)
-  });
-</script>
-  
+    // Test if Firebase loaded
+    console.log("Firebase loaded for library.html");
+
+    // Check if user is logged in
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        // Not signed in, redirect immediately
+        alert("Please sign in to access the Digital Library.");
+        window.location.href = "login.html";
+      } else {
+        console.log("User logged in:", user.email);
+      }
+    });
+  </script>
+
 </body>
 </html>
