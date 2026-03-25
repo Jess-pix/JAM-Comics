@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAM Comics - Book Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="logo">
+        <a href="index.html"><h1>JAM Comics</h1></a>
+      </div>
+      <nav class="business-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="join.html">Join Our Team</a>
+        <a href="contact.html">Contact/Help</a>
+      </nav>
+    </div>
+    <nav class="story-nav">
+      <a href="library.html">Digital Library</a>
+      <a href="authors.html">Authors & Artists</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="store.html">Store/Merch</a>
+    </nav>
+  </header>
+
+  <!-- Book Content -->
+  <section class="hero auth-container">
+    <h1 id="book-title">Book Title</h1>
+    <p id="book-desc">Book description will go here.</p>
+    <img id="book-img" src="" alt="Book Image" style="max-width:300px; display:block; margin:1rem auto;">
+  </section>
+
+  <!-- Firebase (v8 for auth check) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+  <!-- Book JS -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
+      authDomain: "jam-comics.firebaseapp.com",
+      projectId: "jam-comics",
+      storageBucket: "jam-comics.firebasestorage.app",
+      messagingSenderId: "1023403941384",
+      appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
+      measurementId: "G-TKLMVKDPN9"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Redirect if not logged in
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        alert("Please sign in to view this book.");
+        window.location.href = "login.html";
+      }
+    });
+
+    // Example book data
+    const books = {
+      "cosmic-train": {
+        title: "The Cosmic Train",
+        description: "Choose to purchase digitally or physically.",
+        image: "images/cosmic-train.jpg"
+      },
+      "short-story-snippets": {
+        title: "Short Story Snippets",
+        description: "Read online directly on JAM Comics.",
+        image: "images/short-story.jpg"
+      }
+    };
+
+    // Get book from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookSlug = urlParams.get("book");
+    const book = books[bookSlug];
+
+    if (book) {
+      document.getElementById("book-title").innerText = book.title;
+      document.getElementById("book-desc").innerText = book.description;
+      document.getElementById("book-img").src = book.image;
+    } else {
+      document.getElementById("book-title").innerText = "Book Not Found";
+      document.getElementById("book-desc").innerText = "This book does not exist yet.";
+    }
+  </script>
+</body>
+</html>
