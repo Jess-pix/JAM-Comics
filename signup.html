@@ -30,7 +30,7 @@
     </nav>
   </header>
 
-  <!-- SIGN UP -->
+  <!-- SIGN UP SECTION -->
   <section class="hero auth-container">
     <h1>Create Account</h1>
     <p>Join JAM Comics</p>
@@ -45,40 +45,40 @@
     </p>
   </section>
 
-  <!-- FIREBASE (v8 compatible) -->
+  <!-- FIREBASE v8 (compatible with firebase.auth()) -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
   <script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
-    authDomain: "jam-comics.firebaseapp.com",
-    projectId: "jam-comics",
-    storageBucket: "jam-comics.firebasestorage.app",
-    messagingSenderId: "1023403941384",
-    appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
-    measurementId: "G-TKLMVKDPN9"
-  };
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
+      authDomain: "jam-comics.firebaseapp.com",
+      projectId: "jam-comics",
+      storageBucket: "jam-comics.firebasestorage.app",
+      messagingSenderId: "1023403941384",
+      appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
+      measurementId: "G-TKLMVKDPN9"
+    };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-  // SIGN UP FUNCTION
-  function signUp() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    // Sign Up function
+    function signUp() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-    auth.createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        alert("Account created!");
-        window.location.href = "library.html"; // redirect to library
-      })
-      .catch(error => {
-        alert(error.message);
-      });
-  }
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Account created!");
+          window.location.href = "library.html"; // redirect
+        })
+        .catch(error => {
+          alert(error.message);
+        });
+    }
   </script>
 
 </body>
