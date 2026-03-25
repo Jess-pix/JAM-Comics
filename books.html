@@ -36,12 +36,17 @@
     <img id="book-img" src="" alt="Book Image" style="max-width:300px; display:block; margin:1rem auto;">
   </section>
 
-  <!-- Firebase (v8 for auth check) -->
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 JAM Comics. All rights reserved.</p>
+  </footer>
+
+  <!-- Firebase v8 for auth -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
-  <!-- Book JS -->
   <script>
+    // Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
       authDomain: "jam-comics.firebaseapp.com",
@@ -51,18 +56,20 @@
       appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
       measurementId: "G-TKLMVKDPN9"
     };
+
+    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    // Redirect if not logged in
+    // Check if user is logged in
     auth.onAuthStateChanged(user => {
       if (!user) {
-        alert("Please sign in to view this book.");
+        console.log("User not signed in. Redirecting to login page...");
         window.location.href = "login.html";
       }
     });
 
-    // Example book data
+    // Book data
     const books = {
       "cosmic-train": {
         title: "The Cosmic Train",
@@ -76,19 +83,27 @@
       }
     };
 
-    // Get book from URL
+    // Get book from URL query string
     const urlParams = new URLSearchParams(window.location.search);
     const bookSlug = urlParams.get("book");
-    const book = books[bookSlug];
 
-    if (book) {
-      document.getElementById("book-title").innerText = book.title;
-      document.getElementById("book-desc").innerText = book.description;
-      document.getElementById("book-img").src = book.image;
+    // Populate the book content
+    const bookTitleEl = document.getElementById("book-title");
+    const bookDescEl = document.getElementById("book-desc");
+    const bookImgEl = document.getElementById("book-img");
+
+    if (bookSlug && books[bookSlug]) {
+      const book = books[bookSlug];
+      bookTitleEl.textContent = book.title;
+      bookDescEl.textContent = book.description;
+      bookImgEl.src = book.image;
+      bookImgEl.alt = book.title;
     } else {
-      document.getElementById("book-title").innerText = "Book Not Found";
-      document.getElementById("book-desc").innerText = "This book does not exist yet.";
+      bookTitleEl.textContent = "Book Not Found";
+      bookDescEl.textContent = "This book does not exist yet.";
+      bookImgEl.style.display = "none";
     }
   </script>
+
 </body>
 </html>
