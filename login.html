@@ -30,7 +30,7 @@
     </nav>
   </header>
 
-  <!-- LOGIN -->
+  <!-- LOGIN SECTION -->
   <section class="hero auth-container">
     <h1>Login</h1>
     <p>Access the JAM Comics Digital Library</p>
@@ -45,40 +45,40 @@
     </p>
   </section>
 
-  <!-- FIREBASE (v8 compatible) -->
+  <!-- FIREBASE v8 -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
   <script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
-    authDomain: "jam-comics.firebaseapp.com",
-    projectId: "jam-comics",
-    storageBucket: "jam-comics.firebasestorage.app",
-    messagingSenderId: "1023403941384",
-    appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
-    measurementId: "G-TKLMVKDPN9"
-  };
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyAENhkCJCxbPXr18GHyCW3t1LzIe7s0dZw",
+      authDomain: "jam-comics.firebaseapp.com",
+      projectId: "jam-comics",
+      storageBucket: "jam-comics.firebasestorage.app",
+      messagingSenderId: "1023403941384",
+      appId: "1:1023403941384:web:67c425faea31d58ed1fbbd",
+      measurementId: "G-TKLMVKDPN9"
+    };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-  // LOGIN FUNCTION
-  function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    // Login function
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-    auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        alert("Logged in!");
-        window.location.href = "library.html"; // redirect to library
-      })
-      .catch(error => {
-        alert(error.message);
-      });
-  }
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Logged in!");
+          window.location.href = "library.html"; // redirect
+        })
+        .catch(error => {
+          alert(error.message);
+        });
+    }
   </script>
 
 </body>
