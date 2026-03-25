@@ -20,16 +20,16 @@ a {
 /* ===== Header ===== */
 header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* two rows: top & bottom */
   background: #1e3a8a;
   color: #fff;
   padding: 0.8rem 2rem;
 }
 
-/* Top Row */
+/* Top Row: Logo left, business links right */
 .header-top {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, nav right */
   align-items: center;
   margin-bottom: 0.6rem;
 }
@@ -38,13 +38,15 @@ header {
 .header-top .logo h1 {
   font-size: 2rem;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .header-top .logo a {
   color: inherit;
+  text-decoration: none;
 }
 
-/* Business Nav */
+/* Top row: business links, right-aligned */
 .business-nav {
   display: flex;
   justify-content: flex-end;
@@ -57,10 +59,10 @@ header {
   text-decoration: underline;
 }
 
-/* Story Nav */
+/* Bottom Row: story/news links, right-aligned */
 .story-nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* right-aligned */
   gap: 3rem;
   font-weight: bold;
   font-size: 1.1rem;
@@ -73,23 +75,18 @@ header {
   text-decoration: underline;
 }
 
+/* Add small spacing from header edge */
 header .story-nav a,
 header .business-nav a {
   padding-right: 0.2rem;
 }
 
-/* ===== Hero Section (UPDATED) ===== */
+/* ===== Hero Section ===== */
 .hero { 
   text-align: center; 
   padding: 5rem 2rem; 
   background: linear-gradient(135deg,#4f46e5,#6366f1); 
-  color:white;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
+  color:white; 
 }
 
 .hero h1 { 
@@ -100,7 +97,6 @@ header .business-nav a {
 
 .hero p { 
   font-size: 1.2rem; 
-  margin-top: 1rem;
 }
 
 /* ===== Sections ===== */
@@ -137,7 +133,7 @@ footer {
   padding: 2rem; 
 }
 
-/* ===== Cards ===== */
+/* ===== Author / Book cards ===== */
 .author-card, .book-card { 
   border: 1px solid #ccc; 
   border-radius: 8px; 
@@ -164,7 +160,7 @@ footer {
   color: #fff; 
 }
 
-/* ===== Digital Library ===== */
+/* ===== Digital Library reading placeholder ===== */
 .reading-placeholder { 
   border: 2px dashed #1e3a8a; 
   padding: 2rem; 
@@ -183,13 +179,14 @@ footer {
   border-radius: 6px;
   outline: none;
   font-size: 0.95rem;
-  background: rgba(255,255,255,0.9);
 }
 
+/* Make inputs feel nicer when clicked */
 .hero input:focus {
   box-shadow: 0 0 0 2px rgba(255,255,255,0.6);
 }
 
+/* Buttons inside auth */
 .hero button {
   background: #1e3a8a;
   color: white;
@@ -202,8 +199,14 @@ footer {
   transition: 0.2s ease;
 }
 
+/* Hover effect */
 .hero button:hover {
   background: #162d6b;
+}
+
+/* Links under forms */
+.hero p {
+  margin-top: 1rem;
 }
 
 .hero a {
@@ -213,4 +216,11 @@ footer {
 
 .hero a:hover {
   text-decoration: underline;
+}
+
+/* Optional: form box feel */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
